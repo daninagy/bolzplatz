@@ -1,5 +1,30 @@
 {% extends parent_template|default:"users/base_users.html" %}
 
 {% block main %}
+<style type="text/css">
+   
+
+    .helptext {
+        
+        color: grey;
+    }
+    
+    #login_table {
+  
+        border: groove;
+    }
+    
+    th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    }   
+
+
+</style>
+
+<table id="login_table">
 {% include "users/login_form.html" %}
+</table>
+
 {% endblock %}

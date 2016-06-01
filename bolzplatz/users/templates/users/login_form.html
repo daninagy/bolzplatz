@@ -1,6 +1,8 @@
 <form action="{% url 'auth:login' %}" method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  <table id="login_table">
+  {{ form.as_table }}
+  </table>
     {% if next %}
     <input
       type="hidden"

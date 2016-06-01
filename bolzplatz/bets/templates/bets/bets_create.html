@@ -1,22 +1,50 @@
 {% extends parent_template|default:"bets/base_bets.html" %}
 
 {% block main %}
-
+<style type="text/css">
+  #betting_table {
+    border: groove;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  button {
+   float: right;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2}
+  
+</style>
 <p>Angemeldet als {{ request.user }}</p>
 
 <form action="{% url 'bets:bets_create' %}" method="post">
   {% csrf_token %}
   {{form.non_field_errors}}
   {{ form.match.errors }}
-  <p>
+  <table id="betting_table">
+  <tr>
+    <td>
     <label for="{{ form.match.id_for_label}}">Spiel:{{ form.match.label }}</label>
     {{ form.match }}
-  </p>
-  <p>
+     </td>
+  </tr>
+ 
+  <tr>
+    <td>
     <label for="id_bet">Tipp:</label>
     {{ form.score_home }} : {{ form.score_visitor }}
-  </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
   <button type="submit">Speichern</button>
+  </td>
+  </tr>
+  </table>
 </form>
 
 

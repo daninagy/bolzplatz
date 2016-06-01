@@ -4,17 +4,44 @@
 {{ block.super }} - Create Account
 {% endblock %}
 
+
 {% block main %}
+<style type="text/css">
+   
+
+    .helptext {
+        
+        color: grey;
+    }
+    
+    #registration_table {
+  
+        border: groove;
+    }
+    
+    th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2}
+  </style>
 <p>
 {% if user.is_authenticated %}
 <p>You need to be logged out to register</p>
 {% else %}
 <form action="{% url 'auth:create' %}" method="post">
 {% csrf_token %}
-{{ form.as_p }}
-<button type="submit">Create New Account</button>
+<table id="registration_table">
+{{ form.as_table }}
+</table>
+<p>
+<button type="submit">Account erstellen</button>
+</p>
 </form>
 {% endif %}
 </p>
+
 
 {% endblock %}
