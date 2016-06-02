@@ -1,24 +1,18 @@
 {% extends parent_template|default:"bets/base_bets.html" %}
+{%block css %}
 
-{% block main %}
-<style type="text/css">
   #betting_table {
     border: groove;
-  }
-  
-  th, td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
   }
   
   button {
    float: right;
   }
   
-  tr:nth-child(even) {background-color: #f2f2f2}
-  
-</style>
+
+{% endblock %}
+{% block main %}
+
 <p>Angemeldet als {{ request.user }}</p>
 
 <form action="{% url 'bets:bets_create' %}" method="post">

@@ -1,17 +1,13 @@
 {% extends parent_template|default:"users/base_users.html" %}
+{% block css %}
 
-{% block main %}
-<style type="text/css">
    
-
-    .helptext {
-        
-        color: grey;
+    #login_table{
+        width: 180px;
+        float: right;
     }
-    
-    #login_table {
-  
-        border: groove;
+    .helptext {
+        color: grey;
     }
     
     button {
@@ -25,10 +21,8 @@
     }   
 
 
-</style>
 
-
+{% endblock %}
+{% block main %}
 {% include "users/login_form.html" %}
-
-
 {% endblock %}
