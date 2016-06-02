@@ -2,12 +2,22 @@
   {% csrf_token %}
   <table id="login_table">
   {{ form.as_table }}
+  <tr>
+    <td>
+      
+    </td>
+    <td>
+      <button type="submit">{{ login_button|default:'Anmelden' }}</button>
+    </td>
+    
+  </tr>
   </table>
+    
     {% if next %}
     <input
       type="hidden"
       name="next"
       value="{{ next }}">
   {% endif %}
-  <button type="submit">{{ login_button|default:'Anmelden' }}</button>
+  
 </form>
